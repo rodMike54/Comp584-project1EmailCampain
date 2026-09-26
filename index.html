@@ -51,6 +51,54 @@
 
 			/* Responsive styles */
 	
+      /* Stack columns and enlarge text on phones */
+@media screen and (max-width: 600px) {
+  .email-column {
+    display: block !important;
+    width: 100% !important;
+  }
+
+  .mobile-text {
+    font-size: 18px !important;
+  }
+}
+
+/* Button and link hover */
+a:hover {
+  text-decoration: underline !important;
+}
+
+.email-button:hover {
+  background-color: #a31625 !important;
+}
+
+/* Move the heading into place */
+@keyframes move-heading {
+  from { transform: translateX(-15px); }
+  to { transform: translateX(0); }
+}
+
+.animated-heading {
+  animation: move-heading 1s ease-out;
+}
+
+/* Show the selected tip */
+.tip-two, .tip-three {
+  display: none;
+}
+
+#tip-2:checked ~ .tip-one,
+#tip-3:checked ~ .tip-one {
+  display: none;
+}
+
+#tip-2:checked ~ .tip-two,
+#tip-3:checked ~ .tip-three {
+  display: block;
+}
+
+
+
 		</style>
 	</head>
 	<body id="body" style="margin: 0 !important; padding: 0 !important;">
@@ -172,11 +220,12 @@
 
             </td>
           </tr>
-
+          
           <!-- Centered button -->
           <tr>
             <td align="center" style="padding: 30px 20px;">
               <a
+                class="email-button"
                 href="https://www.csun.edu/"
                 style="display: inline-block; background-color: #d22030;
                        color: #ffffff; padding: 14px 26px;
@@ -186,6 +235,195 @@
               </a>
             </td>
           </tr>
+
+          <!-- Two columns -->
+<tr>
+  <td style="padding: 20px 25px;">
+    <h2 class="animated-heading"
+        style="font-family: Arial, sans-serif; font-size: 22px;
+               color: #d22030; margin: 0 0 15px;">
+      More about email design
+    </h2>
+
+    <table role="presentation" width="100%"
+           cellpadding="0" cellspacing="0" border="0">
+      <tr>
+        <td>
+          <table class="email-column" role="presentation"
+                 align="left" width="48%"
+                 cellpadding="0" cellspacing="0" border="0"
+                 style="width: 48%;">
+            <tr>
+              <td class="mobile-text"
+                  style="padding: 12px; font-family: Arial, sans-serif;
+                         font-size: 16px; line-height: 1.5; color: #222222;">
+                <strong>How email travels</strong><br>
+                When you send an email, a mail server transfers it toward the recipient's
+                mail server. The recipient can then read it in an email app or browser.
+              </td>
+            </tr>
+          </table>
+
+          <table class="email-column" role="presentation"
+                 align="right" width="48%"
+                 cellpadding="0" cellspacing="0" border="0"
+                 style="width: 48%;">
+            <tr>
+              <td class="mobile-text"
+                  style="padding: 12px; font-family: Arial, sans-serif;
+                         font-size: 16px; line-height: 1.5; color: #222222;">
+                <strong>Why subject lines matter</strong><br>
+                        The subject line gives readers a quick idea of what the message contains
+                        before they open it.
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </td>
+</tr>
+
+<!-- Three columns -->
+<tr>
+  <td style="padding: 20px 25px;">
+    <h2 style="font-family: Arial, sans-serif; font-size: 22px;
+               color: #d22030; margin: 0 0 15px;">
+      Parts of an email
+    </h2>
+
+    <table role="presentation" width="100%"
+           cellpadding="0" cellspacing="0" border="0">
+      <tr>
+        <td>
+          <table class="email-column" role="presentation"
+                 align="left" width="31%"
+                 cellpadding="0" cellspacing="0" border="0"
+                 style="width: 31%;">
+            <tr>
+              <td class="mobile-text"
+                  style="padding: 10px; font-family: Arial, sans-serif;
+                         font-size: 16px; line-height: 1.5;">
+                <strong>To</strong><br>
+                The “To” field identifies the main recipient of an email.
+                This is where you write the address in the middle of a physical letter.
+              </td>
+            </tr>
+          </table>
+
+          <table class="email-column" role="presentation"
+                 align="left" width="31%"
+                 cellpadding="0" cellspacing="0" border="0"
+                 style="width: 31%;">
+            <tr>
+              <td class="mobile-text"
+                  style="padding: 10px; font-family: Arial, sans-serif;
+                         font-size: 16px; line-height: 1.5;">
+                <strong>Cc</strong><br>
+                “Cc” sends a visible copy to other recipients.
+                Which is useful to other that need to be inform as well without creating other emails.
+              </td>
+            </tr>
+          </table>
+
+          <table class="email-column" role="presentation"
+                 align="right" width="31%"
+                 cellpadding="0" cellspacing="0" border="0"
+                 style="width: 31%;">
+            <tr>
+              <td class="mobile-text"
+                  style="padding: 10px; font-family: Arial, sans-serif;
+                         font-size: 16px; line-height: 1.5;">
+                <strong>Bcc</strong><br>
+                “Bcc” sends a copy without showing those recipients to the others.
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </td>
+</tr>
+
+<!-- Interactive information: radio buttons change the visible content -->
+<tr>
+  <td style="padding: 20px 35px; font-family: Arial, sans-serif;
+             font-size: 16px; line-height: 1.5; color: #222222;">
+
+    <h2 style="font-size: 22px; color: #d22030;">
+      Explore Our Email Service
+    </h2>
+
+    <div>
+      <!-- Radio buttons to showcase the infomation about emails -->
+      <input type="radio" id="tip-1" name="email-tip" checked>
+      <input type="radio" id="tip-2" name="email-tip">
+      <input type="radio" id="tip-3" name="email-tip">
+
+      <!-- labels for the email radio buttons -->
+      <div style="margin: 16px 0;">
+        <label for="tip-1"
+               style="cursor: pointer; display: inline-block;
+                      border: 1px solid #d22030; padding: 8px;
+                      margin: 0 8px 8px 0;">
+          Sending an Email
+        </label>
+
+        <label for="tip-2"
+               style="cursor: pointer; display: inline-block;
+                      border: 1px solid #d22030; padding: 8px;
+                      margin: 0 8px 8px 0;">
+          Reading an email
+        </label>
+
+        <label for="tip-3"
+               style="cursor: pointer; display: inline-block;
+                      border: 1px solid #d22030; padding: 8px;
+                      margin: 0 8px 8px 0;">
+          Staying Safe
+        </label>
+      </div>
+
+      <!-- Sending an email -->
+      <div class="tip-one"
+           style="padding: 16px; background-color: #f4f4f4;">
+        <h3 style="margin: 0 0 8px; color: #d22030;">
+          Sending an Email
+        </h3>
+          <p style="margin: 0;">
+            Add a recipient, write a descriptive subject, and check your message
+            before selecting Send. Attach any files you mention in the message.
+          </p>
+      </div>
+
+      <!-- Reading an email -->
+      <div class="tip-two"
+           style="padding: 16px; background-color: #f4f4f4;">
+        <h3 style="margin: 0 0 8px; color: #d22030;">
+          Reading an Email
+        </h3>
+          <p style="margin: 0;">
+            Read the sender's address and the message carefully. A clear subject
+            and short paragraphs make the main point easier to find.
+          </p>
+      </div>
+
+      <!-- Staying safe content  -->
+      <div class="tip-three"
+           style="padding: 16px; background-color: #f4f4f4;">
+        <h3 style="margin: 0 0 8px; color: #d22030;">
+          Staying Safe
+        </h3>
+          <p style="margin: 0;">
+            Be cautious with unexpected attachments or links. If a message claims
+            to be from an organization, visit its website directly when you need
+           to check your account.
+          </p>
+      </div>
+    </div>
+
+    </td>
+  </tr>
 
           <!-- Footer -->
           <tr>
