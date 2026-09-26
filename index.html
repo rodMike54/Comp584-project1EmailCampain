@@ -97,6 +97,21 @@ a:hover {
   display: block;
 }
 
+/* Fade in the top logo when the page opens */
+@keyframes fade-in-logo {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.top-logo {
+  animation: fade-in-logo 1.5s ease-in;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .top-logo {
+    animation: none;
+  }
+}
 
 
 		</style>
@@ -126,6 +141,7 @@ a:hover {
           <tr>
   <td align="center" style="padding: 20px 0;">
     <img
+      class="top-logo"
       src="images/cal-state-northridge-matadors-logo-png-transparent.png"
       width="600"
       alt="CSUN Matadors logo"
